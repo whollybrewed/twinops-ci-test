@@ -25,7 +25,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
           name: bouncing csv
-          path: /results.csv
+          path: results.csv
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
