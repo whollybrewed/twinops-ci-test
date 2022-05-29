@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.8", "3.9"]
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -21,6 +21,11 @@ jobs:
     - name: Generate results
       run: |
         python $(git ls-files '*.py')
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+          name: bouncing csv
+          path: /results.csv
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
