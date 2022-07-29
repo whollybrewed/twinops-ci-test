@@ -1,6 +1,6 @@
 from OMSimulator import OMSimulator
 oms = OMSimulator()
-model, status = oms.importFile("ballssp.ssp")
+model, status = oms.importFile("ball3.ssp")
 
 
 oms.setResultFile(model, "results.csv")
